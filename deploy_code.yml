@@ -1,0 +1,8 @@
+---
+- hosts: target
+  tasks:
+    - name: clone a private repository
+      git:
+        repo: https://github.com/DanishIqbal91/html.git
+        dest: /mnt/sda1/www
+        

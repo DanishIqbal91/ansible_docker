@@ -1,0 +1,8 @@
+---
+- hosts: target
+  tasks:
+    - name: Removing files
+      shell: /bin/rm -rf "{{ item }}"
+      with_items:
+          - /mnt/sda1/www/
+          - /mnt/sda1/www/.
