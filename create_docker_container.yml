@@ -1,0 +1,37 @@
+---
+- hosts: target
+ 
+  tasks:
+   - name: include variables
+     include_vars: vars.yml
+   
+
+   - name: login to docker registry
+     docker_login:
+       username: "{{ docker_hub_username }}"
+       password: "{{ docker_hub_password }}"
+       email: "{{ docker_hub_email }}"
+        
+
+
+   - name: create docker container
+     docker_container:
+       name: "{{ name }}"
+       image: "{{ image }}"
+       ports:
+          - "{{ src_port }}:{{ dest_port }}"
+  
+       volumes:
+          - "{{ src_vol }}:{{ dest_vol }}"
+       state: started
+      
+
+
+    
+   - name: check container status
+     command: docker ps
+     register: result
+   - debug: var=result.stdout
+
+
+

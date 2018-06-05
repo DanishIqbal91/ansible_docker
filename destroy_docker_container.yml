@@ -1,0 +1,11 @@
+---
+- hosts: target
+  vars:
+    c_name: "{{ name }}"
+  tasks:
+
+  - name: create docker container
+    docker_container:
+      name: "{{ c_name }}"
+      image: ubuntu
+      state: absent
