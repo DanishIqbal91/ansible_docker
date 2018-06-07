@@ -1,0 +1,8 @@
+image: docker925/centos-web:v1
+docker_hub_username: docker925
+docker_hub_password: x.x.x
+docker_hub_email: danishiqbal925@gmail.com
+name: myweb
+src_port: 8084
+dest_port: 80
+src_vol: /mnt/sda1/www
